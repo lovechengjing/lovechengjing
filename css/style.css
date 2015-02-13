@@ -1,0 +1,314 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*
+    Now here is when interesting things start to appear.
+
+    We set up <body> styles with default font and nice gradient in the background.
+    And yes, there is a lot of repetition there because of -prefixes but we don't
+    want to leave anybody behind.
+*/
+
+/*
+    Now let's bring some text styles back ...
+*/
+b, strong { font-weight: bold }
+i, em { font-style: italic }
+
+/*
+    ... and give links a nice look.
+*/
+a {
+    color: inherit;
+    text-decoration: none;
+    padding: 0 0.1em;
+    background: rgba(255,255,255,0.5);
+    text-shadow: -1px -1px 2px rgba(100,100,100,0.9);
+    border-radius: 0.2em;
+
+    -webkit-transition: 0.5s;
+    -moz-transition:    0.5s;
+    -ms-transition:     0.5s;
+    -o-transition:      0.5s;
+    transition:         0.5s;
+}
+
+a:hover,
+a:focus {
+    background: rgba(255,255,255,1);
+    text-shadow: -1px -1px 2px rgba(100,100,100,0.5);
+}
+
+.fallback-message {
+    width: 780px;
+    padding: 10px;
+    margin: 20px auto;
+    border-radius: 10px;
+    color: #fff;
+    background: rgba(0, 0, 0, .5);
+}
+
+.fallback-message p {
+    margin-bottom: 10px;
+}
+
+.impress-supported .fallback-message {
+    display: none;
+}
+
+/*
+    Now let's style the presentation steps.
+
+    We start with basics to make sure it displays correctly in everywhere ...
+*/
+
+.step {
+    position: relative;
+    width: 900px;
+    padding: 40px;
+    margin: 20px auto;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:    border-box;
+    -ms-box-sizing:     border-box;
+    -o-box-sizing:      border-box;
+    box-sizing:         border-box;
+    font-size: 48px;
+    line-height: 1.5;
+}
+
+/*
+    ... and we enhance the styles for impress.js.
+
+    Basically we remove the margin and make inactive steps a little bit transparent.
+*/
+.impress-enabled .step {
+    margin: 0;
+    opacity: 0.3;
+
+    -webkit-transition: opacity 1s;
+    -moz-transition:    opacity 1s;
+    -ms-transition:     opacity 1s;
+    -o-transition:      opacity 1s;
+    transition:         opacity 1s;
+}
+
+.impress-enabled .step.active { opacity: 1 }
+
+html {
+    background: #FF5050;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPHJhZGlhbEdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iNzUlIj4KICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNiMTAwMDAiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNTMwMDAwIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L3JhZGlhbEdyYWRpZW50PgogIDxyZWN0IHg9Ii01MCIgeT0iLTUwIiB3aWR0aD0iMTAxIiBoZWlnaHQ9IjEwMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-radial-gradient(center, ellipse cover,  #FF5050 0%, #FF5050 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #FF5050), color-stop(100%, #FF5050));
+    background: -webkit-radial-gradient(center, ellipse cover,  #FF5050 0%, #FF5050 100%);
+    background: -o-radial-gradient(center, ellipse cover,  #FF5050 0%, #FF5050 100%);
+    background: -ms-radial-gradient(center, ellipse cover,  #FF5050 0%, #FF5050 100%);
+    background: radial-gradient(ellipse at center,  #FF5050 0%, #FF5050 100%);
+    height: 100%;
+}
+
+body {
+    color: #eee;
+    font-family:AnJingChenYW46136;
+}
+
+#testfonts{
+    font-family:minijianyaya209903;
+}
+#wishes{
+	font-family:LiDeBiao-Xing3209794;
+}
+h1{
+    font-family:AnJingChenYW46136;
+    font-size: 200%;
+}
+
+h2{
+    font-family:AnJingChenYW46136;
+    font-size: 150%;
+}
+
+p{
+	font-family:AnJingChenYW46136;
+    font-size: 120%;
+}
+
+small {
+	font-family:Raleway46269;
+    font-size: 40%;
+    font-weight: 300;
+}
+
+.db {
+    display: block;
+}
+
+.ta-c {
+    text-align: center;
+}
+
+.ta-r {
+    text-align: right;
+}
+img{
+	-webkit-transition:all 0.5s ease-in;
+	-moz-transition:all 0.5s ease-in;
+	transition:all 0.5s ease-in;
+	z-index:1;
+}
+img:hover{
+	box-shadow:15px 15px 20px rgba(50, 50, 50, 0.4); 
+	-webkit-transform:rotate(0deg) scale(1.40); 
+	-moz-transform:rotate(0deg) scale(1.40); 
+	transform:rotate(0deg) scale(1.40); 
+	z-index:999999999;
+}
+.main-image img{
+    border: 0.5em solid #eee;
+    box-shadow: 1em, 1em, 1em, #000;
+    box-sizing: border-box;
+    height: 500px;
+}
+.main-image.vertical img{
+    border: 0.5em solid #eee;
+    box-shadow: 1em, 1em, 1em, #000;
+    box-sizing: border-box;
+    height: 500px;
+    width: auto;
+}
+.main-image.vertical.two img{
+    border: 0.3em solid #eee;
+    box-shadow: 1em, 1em, 1em, #000;
+    box-sizing: border-box;
+    margin-right: 30px;
+    height: auto;
+    width: 360px;
+}
+.main-image.vertical.two img:last-of-type{
+    margin-left: 20px;
+    margin-right: 0px;
+}
+.huanghelou03{
+	margin-top: -20px;
+}
+.huanghelou02{
+	float: left; 
+}
+.huanghelou04{
+	float: right;
+	margin-left: 20px;
+    margin-right: 0px;
+	float: left;
+}
+.nanchang05{
+	margin-top: 80px;
+	-webkit-transform: rotate(-5deg); 
+	-moz-transform: rotate(-5deg); 
+	transform: rotate(-5deg);
+}
+.nanchang06{
+	-webkit-transform: rotate(5deg); 
+	-moz-transform: rotate(5deg); 
+	transform: rotate(5deg);
+}
+.nanchang07{
+	margin-top: -400px;
+	-webkit-transform: rotate(0deg); 
+	-moz-transform: rotate(0deg); 
+	transform: rotate(0deg);
+	z-index: 1;
+}
+.Qingdao10{
+	margin-top: 70px;
+	-webkit-transform: rotate(-5deg); 
+	-moz-transform: rotate(-5deg); 
+	transform: rotate(-5deg);
+}
+.Qingdao11{
+	margin-top: 200px;
+	-webkit-transform: rotate(5deg); 
+	-moz-transform: rotate(5deg); 
+	transform: rotate(5deg);
+}
+.Qingdao12{
+	margin-top: -200px;
+	-webkit-transform: rotate(10deg); 
+	-moz-transform: rotate(10deg); 
+	transform: rotate(10deg);
+}
+.shenzhen18{
+	margin-top: 30px;
+	-webkit-transform: rotate(10deg); 
+	-moz-transform: rotate(10deg); 
+	transform: rotate(10deg);
+}
+.shenzhen19{
+	margin-top: -100px;
+	-webkit-transform: rotate(-5deg); 
+	-moz-transform: rotate(-5deg); 
+	transform: rotate(-5deg);
+}
+.shenzhen20{
+	margin-top: -200px;
+	-webkit-transform: rotate(0deg); 
+	-moz-transform: rotate(0deg); 
+	transform: rotate(0deg);
+}
+.moshan22{
+	margin-top: -20px;
+}
+.moshan21{
+	float: left; 
+}
+.moshan23{
+	float: right;
+	margin-left: 20px;
+    margin-right: 0px;
+	float: left;
+}
+
+.impress-enabled          { pointer-events: none }
+.impress-enabled #impress { pointer-events: auto }
